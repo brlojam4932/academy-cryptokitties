@@ -38,7 +38,7 @@ contract KittyMarketPlace is KittyOwnership {
   }
 
 
-  function getAllTokenOnSale() public  returns(uint256[] memory listOfToken){
+  function getAllTokenOnSale() public view returns(uint256[] memory listOfToken){
     uint256 totalOffers = offers.length;
     
     if (totalOffers == 0) {
@@ -72,14 +72,18 @@ contract KittyMarketPlace is KittyOwnership {
     approve(address(this), _tokenId);
 
     Offer memory _offer = Offer({
-      seller: msg.sender,
+      seller: (payable(msg.sender)),
       price: _price,
       tokenId: _tokenId
     });
 
     tokenIdToOffer[_tokenId] = _offer;
 
-    uint256 index = offers.push(_offer) - 1;
+    offers.push(_offer);
+
+    uint256 index = offers.length -1;
+
+    //uint256 index = offers.push(_offer) - 1;
 
     tokenIdToOfferId[_tokenId] = index;
 

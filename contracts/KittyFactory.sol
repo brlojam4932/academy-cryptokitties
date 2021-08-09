@@ -53,7 +53,11 @@ contract KittyFactory {
         generation: uint16(_generation)
     });
 
-    uint256 newKittenId = kitties.push(_kitty) - 1;
+    kitties.push(_kitty);
+
+    uint256 newKittenId = kitties.length -1;
+
+    //uint256 newKittenId = kitties.push(_kitty) - 1; // old code
 
     // It's probably never going to happen, 4 billion cats is A LOT, but
     // let's just be 100% sure we never let this happen.

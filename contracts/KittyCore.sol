@@ -13,7 +13,7 @@ contract KittyCore is Ownable, KittyMarketPlace {
 
   constructor() {
     // We are creating the first kitty at index 0  
-    _createKitty(0, 0, 0, uint256(-1), address(0));
+    _createKitty(0, 0, 0, uint256(0), address(0));
   }
 
 /*
