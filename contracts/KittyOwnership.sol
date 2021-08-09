@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.8.0;
+// SPDX-License-Identifier: GPL-3.0
 
 import "./KittyFactory.sol";
 
@@ -7,7 +8,7 @@ contract KittyOwnership is KittyFactory{
   string public constant name = "IvanKitties";
   string public constant symbol = "CK";
 
-  event Transfer(address from, address to, uint256 tokenId);
+  //event Transfer(address from, address to, uint256 tokenId);
   event Approval(address owner, address approved, uint256 tokenId);
 
   /*

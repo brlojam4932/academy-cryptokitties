@@ -1,15 +1,16 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.8.0;
+// SPDX-License-Identifier: GPL-3.0
 
 /// @title Interface for contracts conforming to ERC-721: Non-Fungible Tokens
 /// @author Dieter Shirley <dete@axiomzen.co> (https://github.com/dete)
-contract ERC721 {
+abstract contract ERC721 {
     // Required methods
-    function totalSupply() public view returns (uint256 total);
-    function balanceOf(address _owner) public view returns (uint256 balance);
-    function ownerOf(uint256 _tokenId) external view returns (address owner);
-    function approve(address _to, uint256 _tokenId) external;
-    function transfer(address _to, uint256 _tokenId) external;
-    function transferFrom(address _from, address _to, uint256 _tokenId) external;
+    function totalSupply() public view virtual returns (uint256 total);
+    function balanceOf(address _owner) public view virtual returns (uint256 balance);
+    function ownerOf(uint256 _tokenId) external view virtual returns (address owner);
+    function approve(address _to, uint256 _tokenId) external virtual;
+    function transfer(address _to, uint256 _tokenId) external virtual;
+    function transferFrom(address _from, address _to, uint256 _tokenId) external virtual;
 
     // Events
     event Transfer(address from, address to, uint256 tokenId);
@@ -22,5 +23,5 @@ contract ERC721 {
     // function tokenMetadata(uint256 _tokenId, string _preferredTransport) public view returns (string infoUrl);
 
     // ERC-165 Compatibility (https://github.com/ethereum/EIPs/issues/165)
-    function supportsInterface(bytes4 _interfaceID) external view returns (bool);
+    function supportsInterface(bytes4 _interfaceID) external view virtual returns (bool);
 }

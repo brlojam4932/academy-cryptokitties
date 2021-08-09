@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.8.0;
+// SPDX-License-Identifier: GPL-3.0
 
 contract KittyFactory {
 
@@ -46,7 +47,7 @@ contract KittyFactory {
 
     Kitty memory _kitty = Kitty({
         genes: _genes,
-        birthTime: uint64(now),
+        birthTime: uint64(block.timestamp),
         mumId: uint32(_mumId),
         dadId: uint32(_dadId),
         generation: uint16(_generation)
